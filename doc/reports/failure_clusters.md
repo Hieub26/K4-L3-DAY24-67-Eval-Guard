@@ -2,7 +2,7 @@
 
 Nhóm: Nhóm 67
 
-Người phụ trách: Võ Trường An - MSSV: 2A202602656 (code Tasks 1–4); Nguyễn Minh Hiếu - MSSV: 2A202602669 (chạy lại RAGAS trên bộ answers sinh bằng LLM và cập nhật phân tích).
+Người phụ trách: Võ Trường An - MSSV: 2A202602656 (code Tasks 1–4).
 
 Nguồn: `artifacts/ragas_50q.json`; run timestamp: 2026-10-12T05:36:21.939691+00:00.
 Generation mode/fallback và điều kiện chạy: cả 50 câu có `generation_mode = llm`, không câu nào rơi về extractive fallback. Pipeline: chunk phân cấp (child 256 ký tự) → enrich 114 chunk → BM25 + dense (BAAI/bge-m3, Qdrant v1.9.7) → rerank (BAAI/bge-reranker-v2-m3) lấy top 3 → sinh câu trả lời.

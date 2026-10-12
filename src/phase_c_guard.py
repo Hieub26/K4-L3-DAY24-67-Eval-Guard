@@ -15,6 +15,8 @@ from config import ADVERSARIAL_SET_PATH, GUARDRAILS_CONFIG_DIR, LATENCY_BUDGET_P
 
 # ─── Task 9a: Presidio PII Detection ─────────────────────────────────────────
 
+PII_ENTITY_TYPES = {"VN_CCCD", "VN_PHONE", "EMAIL_ADDRESS"}
+
 def setup_presidio():
     """Khởi tạo Presidio engine với custom Vietnamese PII recognizers. (Đã implement sẵn)
 
@@ -62,7 +64,10 @@ def pii_scan(text: str, analyzer=None, anonymizer=None) -> dict:
     if analyzer is None or anonymizer is None:
         analyzer, anonymizer = setup_presidio()
 
-    results = analyzer.analyze(text=text, language=PRESIDIO_LANGUAGE)
+    # NER tiếng Anh của spaCy gắn nhầm cụm từ tiếng Việt thành PERSON/LOCATION
+    # → chỉ giữ các loại PII dựa trên pattern mà lab yêu cầu.
+    results = [r for r in analyzer.analyze(text=text, language=PRESIDIO_LANGUAGE)
+               if r.entity_type in PII_ENTITY_TYPES]
     if not results:
         return {"has_pii": False, "entities": [], "anonymized": text}
 
