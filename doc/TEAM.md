@@ -15,7 +15,7 @@ Commit dùng để chấm: Bản commit cuối cùng trên nhánh main trước 
 | STT | Họ và tên | MSSV | Vai trò / công việc thật | Bằng chứng |
 |---|---|---|---|---|
 | 1 | Nguyễn Minh Hiếu | 2A202602669 | Trưởng nhóm/người nộp. Dựng môi trường Windows; tích hợp m1–m5 theo giao diện lab; sinh 50 answers bằng LLM; Phase B Tasks 5–8 và bias report; chạy lại Phase A trên answers mới và cập nhật failure clusters; cài NeMo, chạy Phase C thật, sửa chặn nhầm; blueprint; merge main vào nhánh Hieu | Commit a4c01cb, 925ebc5, 6065713 trên nhánh Hieu; artifacts/answers_50q.json, ragas_50q.json, judge_results.json, guard_results.json; doc/reports/bias_report.md, blueprint.md |
-| 2 | Võ Trường An | 2A202602656 | Trưởng nhóm, phụ trách tích hợp pipeline RAG, setup answers CP0, triển khai Phase A Tasks 1–4, viết báo cáo failure clusters | Commit git, artifacts/answers_50q.json, artifacts/ragas_50q.json, doc/reports/failure_clusters.md |
+| 2 | Võ Trường An | 2A202602656 | Phụ trách tích hợp pipeline RAG, setup answers CP0, triển khai Phase A Tasks 1–4, viết báo cáo failure clusters | Commit git, artifacts/answers_50q.json, artifacts/ragas_50q.json, doc/reports/failure_clusters.md |
 | 3 | Lưu Nguyên Khôi | 2A202602547 | Phase C: implement Tasks 9a–12 trong src/phase_c_guard.py (Presidio PII, NeMo input/output rail, adversarial suite, đo latency) | Commit 8bc35fc; src/phase_c_guard.py; 12/12 test Phase C passed |
 
 Người tích hợp/chạy batch/nộp link: Võ Trường An - 2A202602656, chạy setup answers và chạy runner Phase A (bản đầu trên main).
