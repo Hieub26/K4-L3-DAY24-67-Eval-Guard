@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+if os.path.exists(os.path.expanduser("~/.cache/huggingface/hub")):
+    os.environ.setdefault("HF_HUB_OFFLINE", "1")
+
 # --- API Keys ---
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 HF_TOKEN = os.getenv("HF_TOKEN", "")  # Optional: for HuggingFace models
