@@ -48,9 +48,9 @@ Models/Qdrant/50 answers đã chuẩn bị: BAAI/bge-m3 và BAAI/bge-reranker-v2
 - Phần được giao và phần thực tế đã làm: Phase C — implement pii_scan, check_input_rail, check_output_rail, run_adversarial_suite và measure_p95_latency trong src/phase_c_guard.py.
 - Bằng chứng: Commit 8bc35fc ("feat: Implement PII detection and NeMo guardrails functionality"); src/phase_c_guard.py.
 - Cách kiểm tra: python -m pytest tests/test_phase_c.py -v (12/12 pass).
-- Điều đã học: (Khôi tự bổ sung.)
+- Điều đã học: Cách ghép hai tầng guard cho input: Presidio bắt PII bằng pattern (CCCD/CMND, số điện thoại VN, email) trước, NeMo input rail xử lý jailbreak, off-topic và prompt injection sau. Quyết định chặn phải đọc từ `result.log.activated_rails` của rail, không suy từ từ khóa từ chối trong câu trả lời. Output rail cần cả câu hỏi lẫn answer để kiểm tra và phải giữ nguyên answer sạch. Khi đo latency phải tạo engine trước, warm-up thật 2 lượt, luôn đo cả hai tầng không short-circuit và chạy trong một event loop duy nhất.
 - Giới hạn/cách xử lý: Lượt chạy thật và hai chỉnh sửa sau đó (lọc loại PII trong pii_scan, viết lại policy input) do Nguyễn Minh Hiếu thực hiện trên nhánh Hieu.
-- Nguồn/AI hỗ trợ nếu có: (Khôi tự bổ sung.)
+- Nguồn/AI hỗ trợ nếu có: Phần code trong commit 8bc35fc chưa có ghi nhận về việc dùng AI; hai chỉnh sửa sau đó trên nhánh Hieu được làm với hỗ trợ của Claude Code.
 
 ### VoTruongAn-2A202602656
 
